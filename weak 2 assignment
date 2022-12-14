@@ -1,0 +1,976 @@
+# Day61
+# infinte loop
+while True:
+    print("hello world")
+    
+# Day62
+# for_loop
+# i = 0
+# while i <= 10:
+#  i = i + 1
+
+# for loop with range function
+for i in range(1, 11):
+    print(f"hello world : {i}")
+    print("this is line \n ")
+    
+# hello world 
+# hello world 
+
+# Day63
+# for_loop_sum
+# sum from 1 to 10
+total = 0 # + 1 + 2 + 3 + 4 +............20
+for i in range(1,21):
+    total += i
+    print(total)
+    
+# print(total)
+n = int(input("enter the number : "))
+total = 0
+for i in range(1,n+1):
+    total += i
+    print(total)
+    
+# Day64
+# practise for loop
+# aks user a number like 1256
+# calculate sum of digits ---> 1 + 2 + 5 + 6 
+# logic 
+# num = "1256 , lenght = 4
+# int(num[0]) -----> 1
+# int(num[1]) -----> 2
+# int(num[2]) -----> 5
+# int(num[3]) ------> 6
+# i ---> 0 to 3 
+total = 0
+num = input("enter a number : ")
+for i in range(0, len(num)):
+    total += int(num[i])
+    print(total)
+    
+    
+# Day65
+# pratice for loop 
+# aks user name and count each character 
+# "Harshit Vashisth"
+# H : 1
+# a : 2
+# r : 1
+# s : 3
+# h : 3
+# i : 2
+# t : 2
+#   : 1
+# v : 1
+name = input("enter your name : ")
+temp = ""
+for i in range(len(name)):
+    if name[i] not in temp:
+        print(f"{name[i]}: {name.count(name[i])}")
+        temp += name[i]
+        
+# Day66
+# break and continue keyboard
+# 1 to 10 print
+for i in range(1, 11):
+    if i == 5:
+        break
+    print(i)
+    
+    
+# continue 
+# print 1 to 10 , but not 5
+# 1,2,3,4,5,6,7,8,9,10
+for i in range(1,11):
+     if i == 5:
+         continue
+     print(i)
+     
+     
+#  Day67
+#  MODIFY NUMBER GUESSING GAME
+import random
+winning_number = random.randint(1,100)
+
+
+# Day68
+# NUMBER_GUESSING-GAME
+winning_number = 43
+guess = 1
+number = int(input("guess a number between 1 and 100 : "))
+game_over = False 
+
+while not game_over:
+    if number == winning_number:
+        print(f"you win, and you guessed ths number in {guess} times ")
+        game_over = True
+    else:
+        if number < winning_number:
+            print("too low ")
+            guess += 1
+            number = int(input("guess again : "))
+        else:
+            print("too high")
+            guess += 1
+            number = int(input("guess again : "))
+            
+            
+# Day69
+# DRY - don't repeat yourself
+winning_number = 43
+gues = 1
+number = int(input("guess a number between 1 and 100 : "))
+game_over = False
+
+while not game_over:
+    if number == winning_number:
+        print(f"you win, and you guessed this number in {guess} times ")
+        game_over = True
+    else:
+        if number < winning_number:
+            print("too low")
+        else:
+            print("too high")
+            
+        guess +=  1
+        number = int(input("guess again : "))
+        
+        
+# Day70
+# step argument
+for i in range(0,11,2):
+    print(i)
+    
+# 10 , 9 , 8
+for i in range(1, -11, -1):
+    print(i)
+
+# Day71
+# for_loop_strings
+# name = "harshit"
+# for i in range(len(name)):
+#     print(name[i])
+
+# name = "hareshit"
+# for i in "mohit":
+#     print(i)
+
+# 1256 ----->1+2+5+6
+
+num = input("enter a number :")
+total = 0
+for i in num:
+    total += int(i)
+print(total)
+
+# Day72
+# summary
+# if statement 
+# name = "Mohit"
+# if name == "Harshit" or name == "harshit":
+#      print("you are harshit")
+# elif name == "mohit" or name == "Mohit":
+#        print("you are mohit")
+# else:
+#     print("you are not harshit or mohit")
+
+# while
+# i = 0
+# while i < 10:
+#     print(i)
+#     i += 1
+
+# for loop
+# for i in range(1,11,2):
+#     print(i)
+
+# Day73
+# Function
+def add_two(num1,num2):
+    return num1 + num2
+
+a= int(input("enter first number : "))
+b = int(input("enter second number : "))
+total = add_two(a,b)
+print(total)
+
+first_name = input("type first name ")
+last_name = input("type last name ")
+print(add_two(first_name,last_name))
+
+
+# Day74
+# return vs print
+def add_three(a,b,c):
+    return (a+b+c)
+ # print(add_three(5,5,5))
+add_three(5,5,5)
+
+
+# Day75
+# function practice 
+# def last_char(name):
+#     return name[-1]
+
+# print(last_char("harshit vashisth"))
+# # last_char(9) # error
+
+def odd_even(num):
+    if num%2 == 0:
+        return "even"
+    else:
+        return "odd"
+    
+print(odd_even(9))
+
+def is_even(num):
+    if num%2 == 0:
+        return True
+    else:
+        return False
+    
+print(is_even(9))
+
+def is_even(num):
+    return num%2 == 0
+
+print(is_even(9))
+
+# Day76
+# Inheritance
+
+class phone: #base class / parent class
+    def init(self, brand,model_name, price):
+        self.brand = brand
+        self.model_name = model_name
+        self._price = max(price,0)
+        
+def full_name(self):
+    return f"{self.band} {self.model_name}"
+
+def make_a_call(self,number):
+    return f"calling {number}....."
+
+class Smartphones(phone): # derived / child class
+    def init(self, brand,model_name, price, ramm, internal_memory, rear_camera):
+        # two way
+        phone.init(self,brand,model_name, price) # uncommon way
+        
+        super().init(brand,model_name, price)
+        self.ram = ram
+        self.internal_memory = internal_memory
+        self.rear_camera = rear-camera
+        
+        
+phone = phone('nokia', '1100', 1000)
+smartphone = smartphone('onePlus', '5', 30000, '6 GB', '64 GB', '20 MP')
+print(phone.full_name())
+print(smartphone.full_name() + f"add price is {smartphone._price}")
+# Day77
+def greater(a,b):
+    if a > b:
+        return a
+    else:
+        return b
+    
+num1 = int(intput("enter first number "))
+num2 = int(input("enter second number "))
+bigger = greater(num1, num2)
+print(f"{bigger} is greater")
+
+
+# Day78
+# Define greatest
+def greatest(a,b,c):
+    if a>b and a>c:
+        return a
+    elif b>a and b>c:
+        return b
+    else:
+        return c
+
+print(greatest(100,40,30))
+
+
+# Day79
+# Function inside function
+def greatest(a,b,c,):
+    if a>b and a>c:
+        return a
+    elif b>a and b>c:
+        return b
+    else:
+        return c
+def new_greatest(a,b,c):
+    bigger = greater(a,b)
+    return greater(bigger, c)
+    
+print(new_greatest(1000,200,30))
+
+# greater(a,b)--- > a or b
+# greater(a or b , c)----------> greater
+
+# Day80
+# Define is_palidrome function that take one word in rising as input
+# and return True if it is  palidrome else return Flase
+
+# palidrome  - word that reads same backwards as forwards
+
+# example
+# is_palidrome("madam!") -----> True
+# is_palidrome("naman") ------> True
+# is_plaidrome("horse") ------> Flase
+
+# logic (algorithm)
+# step 1 -> reverse the string
+# step 2 -> compare reversed string with original string
+
+# Day81
+# solution
+
+def is_palindrom(word):
+    reversed_word = word[::-1]
+    if word == reversed_word:
+        return True
+    else:
+        return False
+    
+print(is_palindrom("naman"))
+print(is_palindrom("horse"))
+
+# Day82
+# fibonacci series
+# 0 1 1 2 3 5 8 13 21 34
+
+# 1 -----> 0
+# 2 ------> 0 1
+# 3 ------> 0 1 1
+
+# for i in range(1,11):
+#     print(i, end = ",")
+
+
+def fibonacci_seq(n):
+    a = 0 # first number 
+    b = 1 # second number
+    if n == 1 :
+        print(a)
+    elif n == 2 :
+        print(a, b) # a b , 0 1
+    else:
+        print(a,b, end = " ")
+        for i in range(n-2):
+            c = a + b # c = 1 , 2
+            a = b # a = 1 
+            b = c # b = 1
+            print(b , end = " ")
+            
+fibonacci_seq(10)
+
+
+# Day83
+# Default parameters
+
+def user_info(first_name, last_name = 'unknown', age = None):
+    print(f"Your first name is {first_name}")
+    print(f"Your last name is{last_name}")
+    print(f"you ageis {age}")
+    
+    
+user_info('Harshit',24)
+
+
+# Day84
+# Variable Scope
+x = 5 #  global variable
+
+def func():
+    global x
+    x = 7 # local variables 
+    return x
+
+print(x)
+print(func())
+print(x)
+
+
+# Day85
+# data structures 
+# list ---> this chapter
+# ordered collection of items
+
+# you can store anything in lists int, float, string
+
+number = [1, 2, 3, 4]
+print(number[1])
+
+words = ["word1", "word2" , 'word3']
+print(words[:2])
+
+mixed = [1, 2, 3, 4 , "five", "six", 2.3, None]
+print(mixed[-1])
+
+mixed[1:] = ['three', 'four']
+print(mixed)
+
+
+# Day86
+# Add data to list in Python
+# how to add items to our list
+# most common thing that you can do with your list and most important
+
+# fruits = ['grapes', 'apple']
+# fruits.append('mango')
+
+# print(fruits)
+
+fruits = []
+fruits.apend("mango")
+fruits.append("grapes")
+print(fruits)
+
+
+# Day87
+# some more methods to add data in our list
+# insert method 
+# how to join(concatenate) two list
+# extend method
+# diffrence between append and extend method
+
+fruits1 = ['mango', 'oranges']
+fruits1.insert(2, "grapes")
+print(fruits1)
+
+# how to join(concatenate) two list
+fruits1 = ['mango', 'orange']
+fruits2 = ['grapes', 'apple']
+fruits = fruits1 + fruits2
+print(fruits)
+
+# Day88
+# Delete data from list in pyhton
+
+fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi']
+
+# pop method 
+# fruits.pop(1)
+# del
+# del fruits[1]
+
+# removed 
+
+fruits.remove('banana')
+print(fruits)
+
+# Day89
+# In keyword with list in python
+fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi']
+
+if 'mango' in fruits:
+    print("mango is present ")
+else:
+    print("not present")
+    
+# Day90
+# count method
+fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
+print(fruits.count('banana'))
+
+# sort method
+fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
+fruits.sort()
+print(fruits)
+
+# sorted function
+numbers = [3, 5, 1, 9, 10]
+print(sorted(numbers))
+print(numbers)
+
+# clear method
+numbers = [3, 5, 1, 9, 10]
+numbers.clear()
+print(numbers)
+
+# copy method
+numbers = [3, 5, 1, 9, 10]
+numbers_copy = number
+print(numbers)
+
+
+
+
+
+
+
+# list vs array
+
+# c,c++,java
+# array int,String
+
+# list - storeany data / flexible
+# python array module - fix data type
+# numpy arrays -binding with c libraries 
+# javascript array = python lit /flexible
+
+# list vs array
+
+# strings are immutable 
+# lists are mutable
+
+s = "String"
+# t = s.title()
+# print(t)
+
+l = ['word','word2','word3']
+l.append("Word3")
+print(l)
+
+
+fruits = ['orange','apple','pear','banana','kiwi']
+
+#for loop
+# for fruit in fruits:
+#     print(fruit)
+
+#while
+i=0
+while i < len(fruits):
+    print(fruits[i])
+    i+=1
+
+# list inside list
+matrix = [[1,2,3],[4,5,6],[7,8,9]] #2nd list
+#3items --> 3list
+#print(matrix(2))
+# for sublist in matrix:
+#     for i in sublist:
+#         print(i)
+
+# print(matrix[2][0])
+print(type(matrix))
+
+# generate lists with range functions 
+# something more about pop methid 
+# index method
+# pass list to a function
+
+# numbers = list(range(1,11))
+numbers = [1,2,3,4,5,6,7,8,9,10,11]
+#print(numbers)
+popped item = numbers.pop()
+#print(numbers)
+# print(numbers.index(1,11,14))
+def negative_list(l):
+    negative = []
+    for i in l:
+        negative.append(-i)
+    return negative
+
+print(negative_list(numbers))
+
+# define a function which will take list containing numbers as input
+# and return list containing square of every elements
+
+# example
+# numbers = [1,2,3,4]
+# square_list(numbers)---> return ---> [1,4,9,16]
+
+def square_list(l):
+    square = []
+    for i in l:
+        square.append(i**2)
+    return square
+
+
+#list,str
+numbers=list(range(1,11))
+print(square_list(numbers))
+
+# define a function which will take list as a argument and this function 
+# will return a reversed list
+# examples
+# [1,2,3,4] ---> [4,3,2,1,]
+
+# note you simply do this to reverse method or [::-1]
+
+# def reverse_lis(l):
+#     return l.reverse()
+
+# def reverse_list(l):
+#     returnl[::-1]
+
+numbers = [1,2,3,4]
+print(reverse_list(numbers))
+
+def reverse_list(l):
+    r_list=[]
+    for i in range(1,len(l)+1):
+        popped_item = l.pop()
+        r_list.append(popped_item)
+        return r_list
+
+#103
+def reverse_elements(l):
+    elements = []
+    for i in l:
+        elements.append(i[::-1])
+    return elements
+
+words = ['abc','tuv','xyz']
+print(reverse_elements(words))
+
+#105
+def filter_odd_even(l):
+    odd_nums=[]
+    even_nums=[]
+    for i in l:
+        if i%2==0:
+            even_nums.append(i)
+        else:
+            odd_nums.append(i)
+    output=[odd_nums , even_nums]
+    return output
+nums=[1,2,3,4,5,6,7]
+filter_odd_even(nums)
+
+#107
+def common_finder(l1,l2):
+    output=[]
+    for i in l2:
+        if i in l2:
+            output.append(i)
+    return output
+print(common_finder([1,2,5,8], [1,2,7,6]))
+
+#108
+numbers=[6,60,2]
+#print(min(numbers))
+#print(max(numbers))
+def greatest_diff(l):
+    return max(l) - min(l)
+print(greatest_diff(numbers))
+
+#110
+def sublist_counter(l):
+    count=0
+    for i in l:
+        if type(i)==list:
+            count+=1
+    return count
+mixed=[1,2,3,[1,2]]
+print(sublist_counter(mixed))
+
+#111
+def divide(a,b):
+    try:
+        return a/b
+    except ZeroDivisionError as err:
+        print(err)
+    except TypeError as err:
+        print("numbers must be int or floats")
+    except:
+        print("unexpected error")
+print(divide(10,'2'))
+
+#112
+#tuple can store any data type
+expample = ("one",'two' ,'three')
+# no append , no insert , no pop , no remove
+# days = ('monday','tuesday')
+#113
+
+#looping in tuples
+#tuple with one element
+#tuple without parenthesis
+#tuple unpacking
+#list insidetuple
+#somr functions that you can use with tuples
+
+mixed=(1,2,3,4.0)
+#for loop and tuple
+for i in mixed:
+    print(i)
+#NOTE - You can use while loop too
+
+#tuple with one element
+nums=(1,)
+words=("word1")
+print(type(nums))
+print(type(words))
+
+#tuple without parenthesis
+guitars="yamaha", "baton rouge","taylor"
+#print(type(guitars))
+
+#tuple unpacking
+guitars=('Maneli Jamal','Eddie Van Der Meer', 'Andrew Foy')
+guitars1,guitars2,guitars,3=(guitars)
+# print(guitars1)
+
+#list inside tuples
+favorites=('southern magnolis',['Tokyo Ghoul Theme','landscape'])
+favorites[1].pop()
+favorites[1].append("we made it")
+#print(favorites)
+
+#min(), max(), sum()
+print(min(mixed))
+print(max(mixed))
+print(sum(mixed))
+
+#114
+
+#function returning two values
+def fun(int1, int2):
+    add=int1+int2
+    multiply=int1*int2
+    return add, multiply
+
+#print(func(2,3))
+add,multiply=func(2,3)
+print(add)
+print(multiply)
+
+#115
+
+#something more about tuple, list, str
+#nums=tuple(range(1,11))
+nums=str((1,2,3,4,5,6,7,8,9,10))
+
+num_list=str([1,2,3,4,5,6,7,8,9,10])
+
+#output="(1,2,3,4,5,6,7,8,9,10"
+
+print(num)
+print(type(num))
+
+print(num_list)
+print(type(num_list))
+
+#116
+
+#tuples
+#tuples are immutable
+#tuples are ordered collection of items
+#tuples can store ant data type
+#you cannot changed(add or delete) values from tuple once it created
+#but can add, delete data from list which is present inside tuples
+
+mixed=(1,2,3,4,5,'six')
+# no append, no pop, no insert, no remove
+#only count and index
+
+#functions
+# min(), max(), len(), sum()
+mixed2=(1,2,3,4,5,[6,7,8])
+mixed2[5].pop()
+print(mixed2)
+
+#117
+#dictionaries intro 
+#Q- why we use dictionaries?
+#A- bBecause of limitations of lists are not enough o represent
+#real data .
+
+#Example
+user=['Harshit',24,['coco','kimi no na wa'],['awakening','fairy tale']]
+#this list contains user name, age, fav movies , fav tunes
+#you can do this but this is not good way to do this.
+print(user[0])
+
+#Q - What are dictionaries
+#A - unordered collections of data in key : value pair.
+
+#how to create dictionaries
+user={'name':'Harshit','age':24}
+#print(user)
+#print(type(user))
+print(user[0])
+
+#second method to creat dictionary 
+user1=dict(name="Harshit", age=24)
+#print(user1)
+
+#how to access data from dictionary 
+#NOTE - There is no indexing because of unordered collections of data.
+# print(user["name"])
+# print(user["age"])
+
+#which type of data a dictionary can store?
+#anything
+#number, string, list, dictionary 
+user_info={
+    "name":"harshit",
+    "age":24,
+    'fav_movies':['coco','kimi no na wa'],
+    'fav_tunes':['awakening','fairy tale'],
+}
+print(user_info['fav_movies'])
+
+users={
+    user1={
+		"name":"harshit",
+		"age":24,
+		'fav_movies':['coco','kimi no na wa'],
+		'fav_tunes':['awakening','fairy tale'],
+    },
+
+}
+
+#how to add data to empty dicionary 
+user_info2={}
+user_info2['name']="mohit"
+user_info2['age']=19
+print(user_info2)
+
+#118
+# in keyword and iteration in dictionary 
+user_infor={
+	"name":"harshit",
+	"age":24,
+	'fav_movies':['coco','kimi no na wa'],
+	'fav_tunes':['awakening','fairy tale'],
+}
+
+#check if key exist in dictionary
+# if 'name' in user_info:
+#     print("present")
+# else:
+#     print("not present")
+#check if value exit in dictionary ------> values method
+if 'harsit' in user_info.values():
+    print("present")
+else:
+    print("not present")
+if 24 in user_info.values():
+    print("present")
+else:
+    print("not present")
+if ['coco','kimi no na wa'] in user_info.values():
+    print("present")
+else:
+    print("not present")
+
+#loops in dictionaries
+for i in user_info:
+    print(i)
+for i in user_info.values():
+    print(i)
+
+#values method
+# user_info_values=user_info.values()
+# print(user_info_values)
+# print(type(user_info_values))
+
+# user_info_keys=user_info.keys()
+# print(user_info_keys)
+# print(type(user_info_keys))
+
+#loops in dictionaries
+for i in user_info:
+    print(user_info[i])
+
+#item method
+user_items=user_info.items()
+print(user_items)
+print(type(user_items))
+# [("name":"harshit"),("age":24),('fav_movies',['coco','kimi no na wa']),('fav_tunes':['awakening','fairy tale'])]
+
+for keys, value in user_info.items():
+    print(f"key is {key} and value if {Value}")
+for i, j in user_info.items():
+    print(f"key is {i} and value if {j}")
+	
+#119
+# add and delete data
+user_info={
+	"name":"harshit",
+	"age":24,
+	'fav_movies':['coco','kimi no na wa'],
+	'fav_tunes':['awakening','fairy tale'],
+}
+#how to add data
+# user_info['fav_songs']=['song1','song2']
+# print(user_info)
+
+#pop method
+# popped_item=user_info.pop('fav_tunes')
+# print(f"popped item is {poped_item}")
+# print(user_info)
+
+popped_item=user_info.pop('fav_tunes')
+print(type(popped_item))
+print(user_info)
+
+# popped_item=user_info.pop('age')
+# print(type(popped_item))
+# print(user_info)
+
+#popitem method
+# popped_item=user_info.popitem()
+# print(user_info)
+# print(type(poped_item))
+
+
+user_info={
+	"name":"harshit",
+	"age":24,
+	'fav_movies':['coco','kimi no na wa'],
+	'fav_tunes':['awakening','fairy tale'],
+}
+
+more_info={'name':'Harshit Vashistha','State':'Haryana','hobbies':['coding','reading','guiter']}
+user_info.update({})
+#user_info.update(more_info)
+
+print(user_info)
+
+#121
+
+#formkeys
+# d={'name':'unknowm','age':'unknown'}
+
+d=dict.formkey(('name','age','height'),'unknown')
+print(d)
+
+#d=dict.formkey('abc','unknown')
+# d=dict.formkey(range(1,11),'unknown')
+d=dict.formkey(['name','age'],['unknown','unknown'])
+print(d)
+
+#get method (useful)
+d={'name':'unknowm','age':'unknown'}
+#print(d['names'])
+
+# print(d.get('names')) better
+
+# if 'name' in d:
+#     print('present')
+# else:
+#     print("not present")
+
+# if d.get("names"):
+#     print('present')
+# else:
+#     print("not present")
+
+#if None ----> False, else ----> True
+
+# d.clear()
+# print(d)
+
+#d1=d.copy()
+d1=d
+#print(d)
+# print(d1.popitem())
+# print(d)
+# print(d1==d)
+# print(d1 is d)
+
+
+#more about get, two same keys in dictionaries
+user={'name':'Harsit', 'age': 34, 'age':24}
+# print(user.get('names',"not found!"))
+# print(user.get('fav',"not found!"))
+print(user)
